@@ -15,6 +15,18 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  sides = [a,b,c].sort
+  if ((a || b || c ).positive?) && ((a + b) > c) && (sides[0] + sides[1] > sides[2])
+    if a == b && a == c
+      :equilateral
+    elsif (a == b && a != c) || (b == c && b != a) || (a == c && a != b)
+      :isosceles
+    else
+      :scalene
+    end
+  else
+    raise TriangleError
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
